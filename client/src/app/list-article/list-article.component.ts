@@ -9,16 +9,15 @@ import { BlogApiService } from '../blog-api.service';
   styleUrls: ['./list-article.component.scss']
 })
 export class ListArticleComponent implements OnInit {
-
-    pageSub: any;
-	articles;
-	pageNum: number;
-	listStart: number;
+  pageSub: any;
+  articles;
+  pageNum: number;
+  listStart: number;
 
   constructor(
-  	private _blogAPIService: BlogApiService, 
-	private route: ActivatedRoute
-  	) { }
+    private _blogAPIService: BlogApiService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
   		this.pageSub = this.route.params.subscribe(params => {

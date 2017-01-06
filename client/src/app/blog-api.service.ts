@@ -20,4 +20,12 @@ export class BlogApiService {
 		;
 	}
 
+	fetchAuthors(page: number): Observable<any> {
+		var pageTemp = (page-1)*50;
+		return this.http
+			.get(`${this.baseUrl}/author?limit=50&skip=${pageTemp}`)
+			.map(response => response.json())
+		;
+	}
+
 }

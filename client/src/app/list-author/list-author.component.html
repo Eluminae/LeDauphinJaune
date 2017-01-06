@@ -1,3 +1,10 @@
-<p>
-  list-author works!
-</p>
+<div id="author-content">
+	<div class="loading-section" *ngIf="!author">
+		<!-- You can add a loading indicator here if you want to :) -->
+	</div>
+	<div *ngIf="authors">
+		<div *ngFor="let author of authors" class="post">
+			<author class="author-block" [author]="author"></author>
+		</div>
+	</div>
+</div>
