@@ -11,7 +11,9 @@
 		<span class="divider">
 			|
 		</span>
-		<span class="author">Edited by {{article.author.lastName}}</span>
+		<div ng-if="article.author.lastName == 'lol':">
+			<span class="author">Edited by {{article.author.lastName}}</span>
+		</div>
 
 	</div>
 </div>
