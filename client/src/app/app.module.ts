@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { routing } from './app.routes';
+import { BlogApiService } from './blog-api.service';
 
 import { AppComponent } from './app.component';
 import { ArticleComponent } from './article/article.component';
@@ -31,7 +32,7 @@ import { FooterComponent } from './footer/footer.component';
     HttpModule,
     routing
   ],
-  providers: [],
+  providers: [BlogApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
