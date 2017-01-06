@@ -23,7 +23,7 @@ export class ListArticleComponent implements OnInit {
   ngOnInit() {
         this.pageSub = this.route.params.subscribe(params => {
                 this.pageNum = +params['page'] ? +params['page'] : 1;
-                this._blogAPIService.fetchArticles(this.pageNum)
+                this.fetchArticles(params)
                 .subscribe(
                     articles => this.articles = articles,
                     error => console.log('Error fetching articles'),
@@ -32,6 +32,7 @@ export class ListArticleComponent implements OnInit {
   }
 
   fetchArticles(params) {
+    this.pageSub = this.route.data.subscribe(data => this.category = (data as any).category);
 
     if (this.category == "author") {
       return this._blogAPIService.fetchArticlesByAuthor(this.pageNum, params['id']);
