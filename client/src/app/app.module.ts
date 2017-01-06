@@ -7,13 +7,17 @@ import { AppComponent } from './app.component';
 import { ArticleComponent } from './article/article.component';
 import { TagComponent } from './tag/tag.component';
 import { AuthorComponent } from './author/author.component';
+import { ListAuthorComponent } from './list-author/list-author.component';
+import { ListArticleComponent } from './list-article/list-article.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ArticleComponent,
     TagComponent,
-    AuthorComponent
+    AuthorComponent,
+    ListAuthorComponent,
+    ListArticleComponent
   ],
   imports: [
     BrowserModule,
