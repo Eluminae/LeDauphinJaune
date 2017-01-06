@@ -41,4 +41,12 @@ export class BlogApiService {
 			.map(response => response.json())
 		;
 	}
+
+	fetchTags(page: number): Observable<any> {
+		var pageTemp = (page-1)*50;
+		return this.http
+		.get(`${this.baseUrl}/tag?limit=50&skip=${pageTemp}`)
+		.map(response => response.json())
+		;
+	}
 }

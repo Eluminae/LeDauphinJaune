@@ -14,6 +14,7 @@ import { ListAuthorComponent } from './list-author/list-author.component';
 import { ListArticleComponent } from './list-article/list-article.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { ListTagComponent } from './list-tag/list-tag.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FooterComponent } from './footer/footer.component';
     ListAuthorComponent,
     ListArticleComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ListTagComponent
   ],
   imports: [
     BrowserModule,
