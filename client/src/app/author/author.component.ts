@@ -1,7 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { ActivatedRoute } from '@angular/router';
-
 @Component({
   selector: 'author',
   templateUrl: './author.component.html',
@@ -11,9 +9,11 @@ export class AuthorComponent implements OnInit {
 
   @Input() author;
 
+  pageSub: any;
+  authorId: number;
+
   constructor() { }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() { }
 }
+

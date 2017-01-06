@@ -35,4 +35,10 @@ export class BlogApiService {
 		;
 	}
 
+	fetchAuthor(id: number): Observable<any> {
+		return this.http
+			.get(`${this.baseUrl}/author/${id}`)
+			.map(response => response.json())
+		;
+	}
 }
