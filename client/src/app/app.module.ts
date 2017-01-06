@@ -9,6 +9,8 @@ import { TagComponent } from './tag/tag.component';
 import { AuthorComponent } from './author/author.component';
 import { ListAuthorComponent } from './list-author/list-author.component';
 import { ListArticleComponent } from './list-article/list-article.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { ListArticleComponent } from './list-article/list-article.component';
     TagComponent,
     AuthorComponent,
     ListAuthorComponent,
-    ListArticleComponent
+    ListArticleComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
