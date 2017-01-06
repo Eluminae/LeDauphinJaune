@@ -11,6 +11,7 @@ import { BlogApiService } from '../blog-api.service';
 export class ListArticleComponent implements OnInit {
   pageSub: any;
   articles;
+  authorId: number;
   pageNum: number;
   listStart: number;
 
@@ -22,7 +23,7 @@ export class ListArticleComponent implements OnInit {
   ngOnInit() {
     this.pageSub = this.route.params.subscribe(params => {
       this.pageNum = +params['page'] ? +params['page'] : 1;
-      this._blogAPIService.fetchArticles(this.pageNum)
+      this._blogAPIService.fetchArticles(this.pageNum, params['id'])
       .subscribe(
 	articles => this.articles = articles,
 	  error => console.log('Error fetching articles'),

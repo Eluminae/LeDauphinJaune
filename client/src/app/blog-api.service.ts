@@ -12,10 +12,10 @@ export class BlogApiService {
 		this.baseUrl = 'http://localhost:1337';
 	}
 
-	fetchArticles(page: number): Observable<any> {
+	fetchArticles(page: number, authorId: string): Observable<any> {
 		var pageTemp = (page-1)*30;
 		return this.http
-			.get(`${this.baseUrl}/article?limit=30&skip=${pageTemp}`)
+			.get(`${this.baseUrl}/article?limit=30&skip=${pageTemp}&where={"author":{"contains":${authorId}}}`)
 			.map(response => response.json())
 		;
 	}
