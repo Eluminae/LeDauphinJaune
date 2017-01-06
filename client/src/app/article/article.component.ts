@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
 
@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ArticleComponent implements OnInit {
 
-  //@Input() article;
+  @Input() article;
 
   constructor() { }
 

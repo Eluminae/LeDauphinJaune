@@ -1,16 +1,16 @@
 <div id="article-content">
-	<div class="loading-section" *ngIf="!dish">
+	<div class="loading-section" *ngIf="!article">
 		<!-- You can add a loading indicator here if you want to :) -->
 	</div>
-	<div *ngIf="dishes">
+	<div *ngIf="articles">
 		<div *ngFor="let article of articles" class="post">
-			<dish class="article-block" [article]="article"></dish>
+			<article class="article-block" [article]="article"></article>
 		</div>
 		<div class="nav">
 			<a *ngIf="listStart !== 1" class="prev">
 				‹ Prev
 			</a>
-			<a *ngIf="dishes.length === 10" class="more">
+			<a *ngIf="articles.length === 10" class="more">
 				More ›
 			</a>
 		</div>

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ActivatedRoute } from '@angular/router';
+import { BlogApiService } from '../blog-api.service';
+
 @Component({
   selector: 'app-list-article',
   templateUrl: './list-article.component.html',
