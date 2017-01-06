@@ -20,13 +20,13 @@ export class ListArticleComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-  		this.pageSub = this.route.params.subscribe(params => {
-			this.pageNum = +params['page'] ? +params['page'] : 1;
-			this._blogAPIService.fetchArticles(this.pageNum)
-			.subscribe(
-				articles => this.articles = articles,
-				error => console.log('Error fetching articles'),
-				() => this.listStart = ((this.pageNum - 1) * 30) + 1);
-		});
+    this.pageSub = this.route.params.subscribe(params => {
+      this.pageNum = +params['page'] ? +params['page'] : 1;
+      this._blogAPIService.fetchArticles(this.pageNum)
+      .subscribe(
+	articles => this.articles = articles,
+	  error => console.log('Error fetching articles'),
+	  () => this.listStart = ((this.pageNum - 1) * 30) + 1);
+    });
   }
 }
