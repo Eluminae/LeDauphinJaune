@@ -13,9 +13,9 @@ export class BlogApiService {
 	}
 
 	fetchArticles(page: number): Observable<any> {
-		var pageTemp = (page-1)*50;
+		var pageTemp = (page-1)*30;
 		return this.http
-			.get(`${this.baseUrl}/article?limit=50&skip=${pageTemp}`)
+			.get(`${this.baseUrl}/article?limit=30&skip=${pageTemp}`)
 			.map(response => response.json())
 		;
 	}
@@ -28,9 +28,9 @@ export class BlogApiService {
 	}
 
 	fetchAuthors(page: number): Observable<any> {
-		var pageTemp = (page-1)*50;
+		var pageTemp = (page-1)*30;
 		return this.http
-			.get(`${this.baseUrl}/author?limit=50&skip=${pageTemp}`)
+			.get(`${this.baseUrl}/author?limit=30&skip=${pageTemp}`)
 			.map(response => response.json())
 		;
 	}

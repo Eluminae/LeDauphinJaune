@@ -13,21 +13,28 @@ export class ArticleComponent implements OnInit {
   @Input() article;
 
   pageSub: any;
-  articles;
-  articleId: number;
+  id: number;
 
   constructor(
   	private _blogAPIService: BlogApiService, 
 	private route: ActivatedRoute
-  	) { }
+  	) {}
 
   ngOnInit() {
-  		this.pageSub = this.route.params.subscribe(params => {
-			this._blogAPIService.fetchArticle(this.article.id)
-			.subscribe(
-				article => this.article = article,
-				error => console.log('Error fetching article'),
-				() => this.articleId = this.article.id);
-		});
+  		// If we are in case we need to show ONE article
+  		if (this.id !== undefined) {
+	  		this.pageSub = this.route.params.subscribe(params => {
+  				this.id = +params['id'];
+				this._blogAPIService.fetchArticle(this.id)
+				.subscribe(
+					article => this.article = article,
+					error => console.log('Error fetching article'),
+					() => this.id = this.article.id);
+			});
+  		}
+  }
+
+  ngOnChanges() {
+  	
   }
 }
