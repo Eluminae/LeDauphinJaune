@@ -26,7 +26,7 @@ export class ListArticleComponent implements OnInit {
 			this._blogAPIService.fetchArticles(this.pageNum)
 			.subscribe(
 				articles => this.articles = articles,
-				error => console.log('Error fetching dishes'),
+				error => console.log('Error fetching articles'),
 				() => this.listStart = ((this.pageNum - 1) * 30) + 1);
 		});
   }

@@ -1,3 +1,17 @@
-<p>
-  article works!
-</p>
+<div class="article">
+	<h2 class="article-title"><a [routerLink]="['/article', article.id]" routerLinkActive="active" class="title-link">{{article.title}}</a></h2>
+	<p>{{article.content}}</p>
+	<div class="tags"></div>
+	<div class="article-footer">
+		<span class="date">Creation date : {{article.createdAt}}</span>
+		<span class="divider">
+			|
+		</span>
+		<span class="date">Update date : {{article.updatedAt}}</span>
+		<span class="divider">
+			|
+		</span>
+		<span class="author">Edited by {{article.author}}</span>
+
+	</div>
+</div>
