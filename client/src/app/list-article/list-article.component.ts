@@ -11,7 +11,7 @@ import { BlogApiService } from '../blog-api.service';
 export class ListArticleComponent implements OnInit {
   pageSub: any;
   articles;
-  authorId: number;
+  category;
   pageNum: number;
   listStart: number;
 
@@ -21,13 +21,30 @@ export class ListArticleComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.pageSub = this.route.data.subscribe(data => this.category = (data as any).category);
+
     this.pageSub = this.route.params.subscribe(params => {
       this.pageNum = +params['page'] ? +params['page'] : 1;
-      this._blogAPIService.fetchArticles(this.pageNum, params['id'])
-      .subscribe(
-	articles => this.articles = articles,
-	  error => console.log('Error fetching articles'),
-	  () => this.listStart = ((this.pageNum - 1) * 30) + 1);
+      this.fetchArticles(params)
+        .subscribe(
+	  articles => this.articles = articles,
+	    error => console.log('Error fetching articles'),
+	    () => this.listStart = ((this.pageNum - 1) * 30) + 1
+	)
+      ;
     });
+  }
+
+  fetchArticles(params) {
+
+    if (this.category == "author") {
+      return this._blogAPIService.fetchArticlesByAuthor(this.pageNum, params['id']);
+    }
+
+    if (this.category == "tag") {
+      return this._blogAPIService.fetchArticlesByTag(this.pageNum, params['id']);
+    }
+
+    return this._blogAPIService.fetchArticles(this.pageNum);
   }
 }

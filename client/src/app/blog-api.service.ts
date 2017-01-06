@@ -12,10 +12,26 @@ export class BlogApiService {
 		this.baseUrl = 'http://localhost:1337';
 	}
 
-	fetchArticles(page: number, authorId: string): Observable<any> {
+	fetchArticles(page: number): Observable<any> {
 		var pageTemp = (page-1)*30;
 		return this.http
-			.get(`${this.baseUrl}/article?limit=30&skip=${pageTemp}&where={"author":{"contains":${authorId}}}`)
+			.get(`${this.baseUrl}/article?limit=30&skip=${pageTemp}`)
+			.map(response => response.json())
+		;
+	}
+
+	fetchArticlesByTag(page: number, tagId: string): Observable<any> {
+		var pageTemp = (page-1)*30;
+		return this.http
+			.get(`${this.baseUrl}/tag/${tagId}/articles?limit=30&skip=${pageTemp}`)
+			.map(response => response.json())
+		;
+	}
+
+	fetchArticlesByAuthor(page: number, authorId: string): Observable<any> {
+		var pageTemp = (page-1)*30;
+		return this.http
+			.get(`${this.baseUrl}/author/${authorId}/articles?limit=30&skip=${pageTemp}`)
 			.map(response => response.json())
 		;
 	}

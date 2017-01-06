@@ -9,7 +9,8 @@ import { ListTagComponent } from './list-tag/list-tag.component';
 const routes: Routes = [
   {path: '', redirectTo: 'articles', pathMatch : 'full'},
   {path: 'authors', component: ListAuthorComponent, data: {}},
-  {path: 'author/:id', component: ListArticleComponent, data: {authorId: 'id'}},
+  {path: 'author/:id', component: ListArticleComponent, data: {category: 'author'}},
+  {path: 'tag/:id', component: ListArticleComponent, data: {category: 'tag'}},
   {path: 'article/:id', component: ArticleComponent, data: {}},
   {path: 'articles', component: ListArticleComponent, data: {}},
   {path: 'tags', component: ListTagComponent, data: {}},
