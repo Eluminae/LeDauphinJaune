@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
+import { BlogApiService } from '../blog-api.service';
 
 @Component({
   selector: 'article',
@@ -22,10 +23,11 @@ export class ArticleComponent implements OnInit {
 
   ngOnInit() {
   		this.pageSub = this.route.params.subscribe(params => {
-			this._blogAPIService.fetchArticle(this.articleId)
+			this._blogAPIService.fetchArticle(this.article.id)
 			.subscribe(
-				articles => this.articles = articles,
-				error => console.log('Error fetching article')
+				article => this.article = article,
+				error => console.log('Error fetching article'),
+				() => this.articleId = this.article.id);
 		});
   }
 }

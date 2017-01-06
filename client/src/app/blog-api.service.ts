@@ -20,6 +20,13 @@ export class BlogApiService {
 		;
 	}
 
+	fetchArticle(id: number): Observable<any> {
+		return this.http
+			.get(`${this.baseUrl}/article/${id}`)
+			.map(response => response.json())
+		;
+	}
+
 	fetchAuthors(page: number): Observable<any> {
 		var pageTemp = (page-1)*50;
 		return this.http
