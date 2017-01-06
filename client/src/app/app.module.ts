@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { routing } from './app.routes';
+
 import { AppComponent } from './app.component';
 import { ArticleComponent } from './article/article.component';
 import { TagComponent } from './tag/tag.component';
@@ -26,7 +28,8 @@ import { FooterComponent } from './footer/footer.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
