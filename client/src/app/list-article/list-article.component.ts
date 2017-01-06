@@ -9,25 +9,25 @@ import { BlogApiService } from '../blog-api.service';
   styleUrls: ['./list-article.component.scss']
 })
 export class ListArticleComponent implements OnInit {
-
-    pageSub: any;
-	articles;
-	pageNum: number;
-	listStart: number;
+  pageSub: any;
+  articles;
+  pageNum: number;
+  listStart: number;
 
   constructor(
-  	private _blogAPIService: BlogApiService, 
-	private route: ActivatedRoute
-  	) { }
+    private _blogAPIService: BlogApiService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
-  		this.pageSub = this.route.params.subscribe(params => {
-			this.pageNum = +params['page'] ? +params['page'] : 1;
-			this._blogAPIService.fetchArticles(this.pageNum)
-			.subscribe(
-				articles => this.articles = articles,
-				error => console.log('Error fetching dishes'),
-				() => this.listStart = ((this.pageNum - 1) * 30) + 1);
-		});
+    this.pageSub = this.route.params.subscribe(params => {
+      this.pageNum = +params['page'] ? +params['page'] : 1;
+      this._blogAPIService.fetchArticles(this.pageNum)
+      .subscribe(
+	articles => this.articles = articles,
+	error => console.log('Error fetching dishes'),
+	() => this.listStart = ((this.pageNum - 1) * 30) + 1
+      );
+    });
   }
 }
